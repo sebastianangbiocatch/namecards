@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple JS Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #f2f2f2;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    #clock {
+      font-size: 20px;
+      margin-top: 30px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to My Simple JS Page</h1>
+
+  <div>
+    <p>You clicked the button <span id="count">0</span> times.</p>
+    <button onclick="incrementCount()">Click Me</button>
+  </div>
+
+  <div id="clock">Current time: --:--:--</div>
+
+  <script>
+    // Counter
+    let count = 0;
+    function incrementCount() {
+      count++;
+      document.getElementById('count').innerText = count;
+    }
+
+    // Live Clock
+    function updateClock() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString();
+      document.getElementById('clock').innerText = "Current time: " + timeString;
+    }
+    setInterval(updateClock, 1000);
+    updateClock(); // initial call
+  </script>
+</body>
+</html>
